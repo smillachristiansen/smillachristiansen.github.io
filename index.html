@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Smilla Christiansen — Growth Marketing</title>
+
+  <meta
+    name="description"
+    content="Growth Marketing portfolio by Smilla Christiansen, based in Stockholm."
+  >
+
+  <style>
+    :root {
+      --light-pink: #ffd4e8;
+      --pink: #ff4fa3;
+      --neon-pink: #ff008c;
+      --dark-pink: #d8006f;
+      --black: #101010;
+      --white: #fff9fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--light-pink);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* MENY */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 3%;
+      background: var(--light-pink);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      position: relative;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav a::after {
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+      height: 3px;
+      background: var(--neon-pink);
+      content: "";
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* STARTSIDA */
+
+    .hero {
+      min-height: calc(100vh - 65px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6vh 3% 4vh;
+      overflow: hidden;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .small-label {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .hero-top .small-label:last-child {
+      text-align: right;
+    }
+
+    .hero h1 {
+      margin: 30px 0;
+      color: var(--black);
+      font-size: clamp(72px, 14vw, 220px);
+      font-weight: 900;
+      line-height: 0.7;
+      letter-spacing: -12px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-left: 12%;
+      color: var(--neon-pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-description {
+      max-width: 550px;
+      margin: 0;
+      font-size: clamp(18px, 2vw, 27px);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .hero-link {
+      display: inline-block;
+      padding-bottom: 7px;
+      border-bottom: 4px solid var(--neon-pink);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .hero-link:hover {
+      color: var(--neon-pink);
+    }
+
+    /* RULLANDE TEXT */
+
+    .ticker {
+      overflow: hidden;
+      background: var(--neon-pink);
+      color: var(--black);
+      border-bottom: 3px solid var(--black);
+      white-space: nowrap;
+    }
+
+    .ticker-text {
+      width: max-content;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* GEMENSAMMA SEKTIONER */
+
+    section {
+      border-bottom: 3px solid var(--black);
+    }
+
+    .section-number {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .large-heading {
+      margin: 0;
+      font-size: clamp(55px, 8vw, 125px);
+      font-weight: 900;
+      line-height: 0.82;
+      letter-spacing: -7px;
+      text-transform: uppercase;
+    }
+
+    .large-heading em {
+      color: var(--neon-pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 40px;
+      padding: 120px 3%;
+    }
+
+    .about-content {
+      max-width: 1100px;
+    }
+
+    .about-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 950px;
+      margin-top: 65px;
+    }
+
+    .about-text p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .opportunity {
+      max-width: 950px;
+      margin-top: 60px;
+      padding: 25px 0;
+      border-top: 3px solid var(--black);
+      border-bottom: 3px solid var(--black);
+      color: var(--dark-pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 3vw, 42px);
+      font-style: italic;
+    }
+
+    /* FOCUS */
+
+    .focus {
+      padding: 120px 3%;
+      background: var(--pink);
+    }
+
+    .focus-header {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .focus-list {
+      border-top: 3px solid var(--black);
+    }
+
+    .focus-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      align-items: center;
+      gap: 30px;
+      padding: 30px 0;
+      border-bottom: 3px solid var(--black);
+      transition: padding 0.2s, background 0.2s;
+    }
+
+    .focus-item:hover {
+      padding-right: 20px;
+      padding-left: 20px;
+      background: var(--light-pink);
+    }
+
+    .focus-item span {
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .focus-item h3 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 60px);
+      letter-spacing: -3px;
+      text-transform: uppercase;
+    }
+
+    .focus-item p {
+      max-width: 500px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 40px;
+      padding: 120px 3%;
+      background: var(--black);
+      color: var(--light-pink);
+    }
+
+    .skills .large-heading em {
+      color: var(--pink);
+    }
+
+    .skills-list {
+      margin-top: 70px;
+      border-top: 1px solid var(--pink);
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--pink);
+    }
+
+    .skill-row h3 {
+      margin: 0;
+      font-size: clamp(23px, 3vw, 42px);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .skill-row span {
+      color: var(--pink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    /* EXPERIENCE */
+
+    .experience {
+      padding: 120px 3%;
+    }
+
+    .experience-header {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 3px solid var(--black);
+    }
+
+    .experience-box {
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+    }
+
+    .experience-box + .experience-box {
+      border-left: 3px solid var(--black);
+    }
+
+    .experience-box:nth-child(2) {
+      background: var(--pink);
+    }
+
+    .experience-box:nth-child(3) {
+      background: var(--neon-pink);
+    }
+
+    .experience-box span {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .experience-box h3 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 48px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+    }
+
+    .experience-box p {
+      margin: 20px 0 0;
+      line-height: 1.5;
+    }
+
+    /* KONTAKT */
+
+    footer {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 3% 30px;
+      background: var(--pink);
+    }
+
+    footer h2 {
+      margin: 40px 0 80px;
+      font-size: clamp(65px, 11vw, 170px);
+      font-weight: 900;
+      line-height: 0.75;
+      letter-spacing: -10px;
+      text-transform: uppercase;
+    }
+
+    footer h2 span {
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .contact-links {
+      border-top: 3px solid var(--black);
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 24px 0;
+      border-bottom: 3px solid var(--black);
+      font-size: clamp(18px, 3vw, 42px);
+      font-weight: 900;
+      overflow-wrap: anywhere;
+      transition: color 0.2s, padding 0.2s;
+    }
+
+    .contact-links a:hover {
+      padding-right: 20px;
+      padding-left: 20px;
+      background: var(--black);
+      color: var(--pink);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 100px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* MOBILANPASSNING */
+
+    @media (max-width: 800px) {
+      header {
+        padding: 14px 12px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 9px;
+      }
+
+      .hero {
+        min-height: 85vh;
+        padding: 45px 16px 25px;
+      }
+
+      .hero h1 {
+        font-size: clamp(64px, 22vw, 115px);
+        letter-spacing: -6px;
+      }
+
+      .hero h1 span {
+        margin-left: 0;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .hero-top .small-label:last-child {
+        text-align: left;
+      }
+
+      .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .about,
+      .skills {
+        grid-template-columns: 1fr;
+        padding: 80px 16px;
+      }
+
+      .about-text {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .focus,
+      .experience {
+        padding: 80px 16px;
+      }
+
+      .focus-header,
+      .experience-header {
+        grid-template-columns: 1fr;
+        margin-bottom: 50px;
+      }
+
+      .focus-item {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .focus-item p {
+        grid-column: 2;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-box {
+        min-height: 240px;
+      }
+
+      .experience-box + .experience-box {
+        border-top: 3px solid var(--black);
+        border-left: 0;
+      }
+
+      .large-heading {
+        font-size: clamp(50px, 16vw, 90px);
+        letter-spacing: -5px;
+      }
+
+      footer {
+        min-height: auto;
+        padding: 80px 16px 25px;
+      }
+
+      footer h2 {
+        font-size: clamp(62px, 20vw, 110px);
+        letter-spacing: -7px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .ticker-text {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENY -->
+
+  <header>
+    <a class="logo" href="#home">SMILLA CHRISTIANSEN®</a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#focus">Focus</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- STARTSIDA -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-top">
+        <p class="small-label">
+          Growth Marketing Student<br>
+          Berghs School of Communication
+        </p>
+
+        <p class="small-label">
+          Stockholm, Sweden<br>
+          Portfolio 2026
+        </p>
+      </div>
+
+      <h1>
+        Strategy
+        <span>meets</span>
+        creativity
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-description">
+          I turn consumer insight into creative ideas, campaigns
+          and concepts made to create attention — and growth.
+        </p>
+
+        <a class="hero-link" href="#about">
+          Discover more ↓
+        </a>
+      </div>
+
+    </section>
+
+    <!-- RULLANDE TEXT -->
+
+    <div class="ticker">
+      <div class="ticker-text">
+        GROWTH MARKETING ✦ CREATIVE STRATEGY ✦ CONSUMER BEHAVIOUR ✦
+        BRANDING ✦ CONTENT ✦ DATA &amp; INSIGHTS ✦ GROWTH MARKETING ✦
+        CREATIVE STRATEGY ✦ CONSUMER BEHAVIOUR ✦ BRANDING ✦
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+      <p class="section-number">
+        01 / About
+      </p>
+
+      <div class="about-content">
+
+        <h2 class="large-heading">
+          Curious by nature.<br>
+          <em>Practical by choice.</em>
+        </h2>
+
+        <div class="about-text">
+          <p>
+            I'm Smilla Christiansen, a Growth Marketing student at
+            Berghs School of Communication in Stockholm. I'm interested
+            in the point where creativity, strategy and consumer
+            behaviour meet.
+          </p>
+
+          <p>
+            My background spans customer service, sales, production,
+            logistics and events. It has taught me how people think,
+            what makes an experience work and why execution matters
+            just as much as the idea.
+          </p>
+        </div>
+
+        <p class="opportunity">
+          Currently open to internships, junior roles and creative collaborations.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- FOCUS -->
+
+    <section class="focus" id="focus">
+
+      <div class="focus-header">
+
+        <p class="section-number">
+          02 / Focus
+        </p>
+
+        <h2 class="large-heading">
+          What makes<br>
+          people <em>care?</em>
+        </h2>
+
+      </div>
+
+      <div class="focus-list">
+
+        <div class="focus-item">
+          <span>01</span>
+
+          <h3>Consumer behaviour</h3>
+
+          <p>
+            Understanding what people want, feel and respond to.
+          </p>
+        </div>
+
+        <div class="focus-item">
+          <span>02</span>
+
+          <h3>Creative strategy</h3>
+
+          <p>
+            Turning insight into concepts with a clear purpose.
+          </p>
+        </div>
+
+        <div class="focus-item">
+          <span>03</span>
+
+          <h3>Brand experiences</h3>
+
+          <p>
+            Creating ideas people can see, feel and remember.
+          </p>
+        </div>
+
+        <div class="focus-item">
+          <span>04</span>
+
+          <h3>Growth</h3>
+
+          <p>
+            Connecting creativity with measurable business goals.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section class="skills" id="skills">
+
+      <p class="section-number">
+        03 / Skills
+      </p>
+
+      <div>
+
+        <h2 class="large-heading">
+          A mix of<br>
+          <em>head, heart</em><br>
+          &amp; action.
+        </h2>
+
+        <div class="skills-list">
+
+          <div class="skill-row">
+            <h3>Growth Marketing</h3>
+            <span>Strategy</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Creative Strategy</h3>
+            <span>Ideas</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Branding</h3>
+            <span>Identity</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Consumer Behaviour</h3>
+            <span>Insight</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Social Media</h3>
+            <span>Community</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Data &amp; Insights</h3>
+            <span>Learning</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>AI &amp; Tools</h3>
+            <span>Efficiency</span>
+          </div>
+
+          <div class="skill-row">
+            <h3>Content Creation</h3>
+            <span>Communication</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section class="experience">
+
+      <div class="experience-header">
+
+        <p class="section-number">
+          04 / Background
+        </p>
+
+        <h2 class="large-heading">
+          Experience that<br>
+          starts with <em>people.</em>
+        </h2>
+
+      </div>
+
+      <div class="experience-grid">
+
+        <article class="experience-box">
+          <span>EDUCATION</span>
+
+          <div>
+            <h3>Berghs School of Communication</h3>
+
+            <p>
+              Growth Marketing, Stockholm.
+            </p>
+          </div>
+        </article>
+
+        <article class="experience-box">
+          <span>CUSTOMER EXPERIENCE</span>
+
+          <div>
+            <h3>Service &amp; Sales</h3>
+
+            <p>
+              More than four years of experience working directly
+              with customers and understanding their needs.
+            </p>
+          </div>
+        </article>
+
+        <article class="experience-box">
+          <span>EXECUTION</span>
+
+          <div>
+            <h3>Production, Logistics &amp; Events</h3>
+
+            <p>
+              Hands-on experience turning plans into real experiences.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- KONTAKT -->
+
+  <footer id="contact">
+
+    <div>
+
+      <p class="section-number">
+        05 / Contact
+      </p>
+
+      <h2>
+        Let's make<br>
+        <span>something</span><br>
+        happen.
+      </h2>
+
+      <div class="contact-links">
+
+        <a href="mailto:smillachristiansen@yahoo.se">
+          smillachristiansen@yahoo.se
+          <span>↗</span>
+        </a>
+
+        <a
+          href="https://www.instagram.com/smillachristiansen/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+          <span>↗</span>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/smillachristiansen"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>Stockholm, Sweden</span>
+      <span>© 2026 Smilla Christiansen</span>
+    </div>
+
+  </footer>
+
+</body>
+</html>
