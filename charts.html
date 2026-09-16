@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Färre testar droger – men unga finns i narkotikamarknaden</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f6f3ee;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 100px 0 80px;
+    }
+
+    .label {
+      color: #ff3f91;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      max-width: 1000px;
+      margin: 0 0 30px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 55px);
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .intro {
+      max-width: 800px;
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid #d8d4ce;
+    }
+
+    .chart-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 35px;
+    }
+
+    .chart-container {
+      height: 400px;
+    }
+
+    .source {
+      font-size: 13px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .kpi {
+      background: #111;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .kpi-number {
+      color: #ff3f91;
+      font-size: 55px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .conclusion {
+      font-size: 32px;
+      line-height: 1.3;
+      font-weight: bold;
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .warning {
+      background: white;
+      border-left: 6px solid #ff3f91;
+      padding: 25px;
+      margin-top: 35px;
+      max-width: 900px;
+    }
+
+    .sources a {
+      color: #111;
+    }
+
+    footer {
+      padding: 50px 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 750px) {
+
+      .kpis {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .chart-container {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<header>
+
+  <div class="container">
+
+    <div class="label">
+      Berghs Growth Marketing – Data Story
+    </div>
+
+    <h1>
+      Färre testar droger – men unga finns i narkotikamarknaden
+    </h1>
+
+    <p class="intro">
+      Svenska skolelever rapporterar lägre narkotikaerfarenhet.
+      Samtidigt visar statistik från Brå och Polisen hur barn och unga
+      förekommer i narkotikahandel och kriminella nätverk.
+      Det här är siffrorna bakom kontrasten.
+    </p>
+
+  </div>
+
+</header>
+
+
+<!-- DIAGRAM 1 -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+      01 / Ungas narkotikaanvändning
+    </div>
+
+    <h2>
+      Färre skolelever uppger narkotikaerfarenhet
+    </h2>
+
+    <p class="intro">
+      CAN:s nationella skolundersökning visar att 5 procent av
+      eleverna i årskurs 9 och 12 procent av eleverna i gymnasiets
+      år 2 uppgav 2025 att de någon gång använt narkotika.
+    </p>
+
+    <div class="chart-card">
+
+      <h3>
+        Andel som någon gång använt narkotika
+      </h3>
+
+      <div class="chart-container">
+        <canvas id="canChart"></canvas>
+      </div>
+
+      <p class="source">
+        Källa: CAN:s nationella skolundersökningar 2024 och 2025.
+        Enhet: procent.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DIAGRAM 2 -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+      02 / Narkotikabrott
+    </div>
+
+    <h2>
+      Narkotikan finns kvar i den kriminella ekonomin
+    </h2>
+
+    <p class="intro">
+      Under 2025 registrerades 125 142 anmälda narkotikabrott.
+      Det var 4 procent färre än året innan, men 38 procent fler
+      än 2016.
+    </p>
+
+
+    <div class="kpis">
+
+      <div class="kpi">
+
+        <span class="kpi-number">
+          125 142
+        </span>
+
+        anmälda narkotikabrott 2025
+
+      </div>
+
+
+      <div class="kpi">
+
+        <span class="kpi-number">
+          +38 %
+        </span>
+
+        jämfört med 2016
+
+      </div>
+
+
+      <div class="kpi">
+
+        <span class="kpi-number">
+          61 977
+        </span>
+
+        personer misstänkta för narkotikabrott 2024
+
+      </div>
+
+    </div>
+
+
+    <div class="chart-card">
+
+      <h3>
+        Anmälda narkotikabrott 2025
+      </h3>
+
+      <div class="chart-container">
+        <canvas id="crimeChart"></canvas>
+      </div>
+
+      <p class="source">
+        Källa: Brå. Innehav 57 %, eget bruk 36 %, övrigt 7 %.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DIAGRAM 3 -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+      03 / Unga i narkotikamarknaden
+    </div>
+
+    <h2>
+      Unga förekommer i narkotikaöverlåtelse
+    </h2>
+
+    <p class="intro">
+      Brås statistik visar utvecklingen för personer mellan
+      15–17 år och 18–20 år som misstänkts för narkotikaöverlåtelse
+      mellan 2012 och 2022.
+    </p>
+
+
+    <div class="chart-card">
+
+      <h3>
+        Misstänkta för narkotikaöverlåtelse
+      </h3>
+
+      <div class="chart-container">
+        <canvas id="youthChart"></canvas>
+      </div>
+
+      <p class="source">
+        Källa: Brå, Barn och unga i kriminella nätverk (2023:13).
+        Enhet: antal misstänkta personer.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- POLISEN -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+      04 / Kriminella nätverk
+    </div>
+
+    <h2>
+      17 500 bedöms vara aktiva gängkriminella
+    </h2>
+
+    <p class="intro">
+      Polisens lägesbild för 2025 uppskattar omkring 17 500
+      aktiva gängkriminella i Sverige och omkring 50 000
+      ytterligare personer med koppling till gängkriminella.
+    </p>
+
+
+    <div class="chart-card">
+
+      <h3>
+        Polisens lägesbild 2025
+      </h3>
+
+      <div class="chart-container">
+        <canvas id="gangChart"></canvas>
+      </div>
+
+      <p class="source">
+        Källa: Polisen. Uppgifterna är uppskattningar.
+      </p>
+
+    </div>
+
+
+    <p class="conclusion">
+
+      Kontrasten: färre skolelever uppger narkotikaerfarenhet,
+      samtidigt som narkotika fortfarande är en del av den
+      kriminella ekonomi där barn och unga kan bli utförare.
+
+    </p>
+
+
+    <div class="warning">
+
+      <strong>Viktigt om datan:</strong>
+
+      CAN, Brå och Polisen mäter olika saker och olika grupper.
+      Diagrammen visar därför två parallella utvecklingar,
+      inte ett bevisat orsakssamband.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- KÄLLOR -->
+
+<section class="sources">
+
+  <div class="container">
+
+    <div class="label">
+      05 / Källor
+    </div>
+
+    <h2>
+      Data och metod
+    </h2>
+
+    <p>
+      CAN – Nationella skolundersökningen 2025
+    </p>
+
+    <p>
+      Brå – Statistik om narkotikabrott
+    </p>
+
+    <p>
+      Brå – Barn och unga i kriminella nätverk
+    </p>
+
+    <p>
+      Polisen – Lägesbild över aktiva gängkriminella 2025
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="container">
+
+    Berghs Growth Marketing – Data Story
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+/* FÄRGER */
+
+const pink = "#ff3f91";
+const black = "#111111";
+const grey = "#bcb8b2";
+
+
+/* --------------------
+   DIAGRAM 1 – CAN
+-------------------- */
+
+new Chart(
+  document.getElementById("canChart"),
+  {
+
+    type: "bar",
+
+    data: {
+
+      labels: [
+        "Årskurs 9",
+        "Gymnasiet år 2"
+      ],
+
+      datasets: [
+
+        {
+          label: "2024",
+          data: [6, 15],
+          backgroundColor: grey
+        },
+
+        {
+          label: "2025",
+          data: [5, 12],
+          backgroundColor: pink
+        }
+
+      ]
+
+    },
+
+    options: {
+
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      scales: {
+
+        y: {
+
+          beginAtZero: true,
+
+          title: {
+            display: true,
+            text: "Procent"
+          }
+
+        }
+
+      },
+
+      plugins: {
+
+        legend: {
+          position: "bottom"
+        }
+
+      }
+
+    }
+
+  }
+);
+
+
+
+/* --------------------
+   DIAGRAM 2 – BRÅ
+-------------------- */
+
+new Chart(
+  document.getElementById("crimeChart"),
+  {
+
+    type: "doughnut",
+
+    data: {
+
+      labels: [
+        "Innehav",
+        "Eget bruk",
+        "Övrigt"
+      ],
+
+      datasets: [
+
+        {
+
+          data: [
+            57,
+            36,
+            7
+          ],
+
+          backgroundColor: [
+            pink,
+            black,
+            grey
+          ]
+
+        }
+
+      ]
+
+    },
+
+    options: {
+
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      plugins: {
+
+        legend: {
+          position: "bottom"
+        }
+
+      }
+
+    }
+
+  }
+);
+
+
+
+/* --------------------
+   DIAGRAM 3 – UNGA
+-------------------- */
+
+new Chart(
+  document.getElementById("youthChart"),
+  {
+
+    type: "line",
+
+    data: {
+
+      labels: [
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022"
+      ],
+
+      datasets: [
+
+        {
+
+          label: "15–17 år",
+
+          data: [
+            310,
+            344,
+            320,
+            245,
+            213,
+            311,
+            349,
+            357,
+            390,
+            412,
+            406
+          ],
+
+          borderColor: pink,
+
+          backgroundColor: pink,
+
+          tension: 0.25
+
+        },
+
+
+        {
+
+          label: "18–20 år",
+
+          data: [
+            695,
+            752,
+            712,
+            626,
+            687,
+            786,
+            885,
+            931,
+            921,
+            876,
+            958
+          ],
+
+          borderColor: black,
+
+          backgroundColor: black,
+
+          tension: 0.25
+
+        }
+
+      ]
+
+    },
+
+    options: {
+
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      scales: {
+
+        y: {
+
+          beginAtZero: true,
+
+          title: {
+            display: true,
+            text: "Antal misstänkta"
+          }
+
+        }
+
+      },
+
+      plugins: {
+
+        legend: {
+          position: "bottom"
+        }
+
+      }
+
+    }
+
+  }
+);
+
+
+
+/* --------------------
+   DIAGRAM 4 – POLISEN
+-------------------- */
+
+new Chart(
+  document.getElementById("gangChart"),
+  {
+
+    type: "bar",
+
+    data: {
+
+      labels: [
+
+        "Aktiva gängkriminella",
+
+        "Personer med koppling"
+
+      ],
+
+      datasets: [
+
+        {
+
+          label: "Cirka antal personer",
+
+          data: [
+            17500,
+            50000
+          ],
+
+          backgroundColor: [
+            pink,
+            black
+          ]
+
+        }
+
+      ]
+
+    },
+
+    options: {
+
+      indexAxis: "y",
+
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      plugins: {
+
+        legend: {
+          display: false
+        }
+
+      }
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
