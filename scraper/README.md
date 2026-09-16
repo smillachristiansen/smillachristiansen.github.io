@@ -1,23 +1,38 @@
-# Web Scraper
+# Eventbyrå Scraper
 
-Detta är en enkel web scraper skapad i Python.
+Detta projekt är en web scraper byggd med JavaScript, Node.js och Cheerio.
 
-Scrapern hämtar data från quotes.toscrape.com, en webbplats skapad för att öva web scraping.
+Scrapern hämtar information om eventbyråer från Allabolag och samlar informationen i en CSV-fil.
 
-## Vad scrapern gör
+## Data som samlas in
 
-1. Hämtar webbsidans HTML med Requests.
-2. Läser HTML-koden med BeautifulSoup.
-3. Hittar citat och tillhörande författare.
-4. Sparar resultatet i filen `quotes.csv`.
+För varje företag hämtas:
 
-## Filer
+- Företagsnamn
+- Organisationsnummer
+- Telefonnummer
+- Adress
 
-- `scraper.py` – Python-koden som utför scrapingen.
-- `quotes.csv` – resultatet från scrapingen.
+Scrapern hämtar fem sidor med sökresultat och väntar 500 ms mellan varje sida.
 
-## Kör scrapern
+Resultatet sparas i:
 
-```bash
-python3 scraper.py
-```
+`foretag.csv`
+
+## Teknik
+
+- JavaScript
+- Node.js
+- Cheerio
+- Fetch
+- CSV
+
+## Kör projektet
+
+Installera dependencies:
+
+npm install
+
+Kör scrapern:
+
+node scraper.js
