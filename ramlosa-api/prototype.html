@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ramlösa – API Mashup</title>
+  <title>Growth Toolbox – API Mashup | Smilla Christiansen</title>
 
   <style>
     * {
@@ -22,6 +22,31 @@
     .container {
       max-width: 950px;
       margin: auto;
+    }
+
+    .assignment {
+      margin-bottom: 35px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .assignment-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+
+    .assignment-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 0 6px 0;
+    }
+
+    .student-name {
+      margin: 0;
+      color: #555;
     }
 
     h1 {
@@ -48,7 +73,7 @@
     }
 
     .weather {
-      font-size: 42px;
+      font-size: 36px;
       font-weight: bold;
       margin: 15px 0;
     }
@@ -74,6 +99,11 @@
     .explanation {
       margin-top: 20px;
       color: #555;
+    }
+
+    .insight {
+      font-size: 20px;
+      line-height: 1.5;
     }
 
     .mashup {
@@ -122,11 +152,6 @@
       font-size: 19px;
     }
 
-    .insight {
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
     .footer {
       margin-top: 30px;
       text-align: center;
@@ -140,18 +165,22 @@
 
   <main class="container">
 
+    <!-- UPPGIFT + NAMN -->
+    <header class="assignment">
+      <p class="assignment-label">Growth Toolbox</p>
+      <p class="assignment-title">API Mashup / Paper Prototype</p>
+      <p class="student-name">Smilla Christiansen</p>
+    </header>
+
     <h1>Ramlösa Sales Opportunity</h1>
 
     <p class="intro">
-      Paper prototype – två API:er kombineras för att skapa
-      en datadriven försäljningsinsikt.
+      Två API:er kombineras för att skapa en datadriven
+      försäljningsinsikt för Ramlösa.
     </p>
 
-
-    <!-- VÄDERDATA -->
-
+    <!-- API 1 -->
     <section class="card">
-
       <h2>🌤️ Stockholm idag</h2>
 
       <p>
@@ -170,14 +199,10 @@
         Det milda vädret indikerar normal prioritet
         för Ramlösa-försäljning i Stockholm.
       </p>
-
     </section>
 
-
-    <!-- PLATSDATA -->
-
+    <!-- API 2 -->
     <section class="card">
-
       <h2>📍 Potentiella försäljningsställen</h2>
 
       <p>
@@ -201,14 +226,10 @@
         Platsinformationen kan användas för att identifiera
         områden och försäljningsställen där Ramlösa kan prioriteras.
       </p>
-
     </section>
 
-
-    <!-- RESULTAT -->
-
+    <!-- INSIGHT -->
     <section class="card">
-
       <h2>💡 Datadriven insikt</h2>
 
       <p class="insight">
@@ -216,14 +237,10 @@
         potentiella försäljningsställen kan Carlsberg Sverige
         identifiera möjligheter för Ramlösa-försäljning i Stockholm.
       </p>
-
     </section>
 
-
-    <!-- API MASHUP -->
-
+    <!-- MASHUP -->
     <section class="card mashup">
-
       <h2>Så fungerar API-mashupen</h2>
 
       <div class="flow">
@@ -234,9 +251,7 @@
           <p>Temperatur & väder</p>
         </div>
 
-        <div class="symbol">
-          +
-        </div>
+        <div class="symbol">+</div>
 
         <div class="api">
           <strong>API 2</strong>
@@ -244,24 +259,18 @@
           <p>Platser & försäljningsställen</p>
         </div>
 
-        <div class="symbol">
-          →
-        </div>
+        <div class="symbol">→</div>
 
         <div class="result">
           <strong>DATA MASHUP</strong>
-          <p>
-            Försäljningsmöjligheter för Ramlösa
-          </p>
+          <p>Försäljningsmöjligheter för Ramlösa</p>
         </div>
 
       </div>
-
     </section>
 
-
     <p class="footer">
-      Growth Toolbox – API Mashup / Paper Prototype
+      Growth Toolbox – Smilla Christiansen
     </p>
 
   </main>
