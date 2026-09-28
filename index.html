@@ -628,7 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#about">About1</a>
       <a href="#focus">Focus</a>
       <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" id="contact-nav-link">Contact</a>
     </nav>
   </header>
 
@@ -958,6 +958,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
   </footer>
+<<script>
+  window.dataLayer = window.dataLayer || [];
 
-</body>
-</html>
+  document.addEventListener('DOMContentLoaded', function () {
+    var contactLink = document.getElementById('contact-nav-link');
+
+    if (contactLink) {
+      contactLink.addEventListener('click', function () {
+        window.dataLayer.push({
+          event: 'contact_nav_click',
+          page_path: window.location.pathname
+        });
+      });
+    }
+  });
+</script>
